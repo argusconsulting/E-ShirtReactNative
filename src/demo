@@ -1,0 +1,127 @@
+import {
+    ImageBackground,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TextInput,
+    View,
+  } from 'react-native';
+  import React from 'react';
+  import tw from '../../../tailwind.config';
+  import {BlurView} from '@react-native-community/blur';
+  import AntDesign from 'react-native-vector-icons/AntDesign';
+  import LinearGradient from 'react-native-linear-gradient';
+  
+  const Login = () => {
+    return (
+      <View style={styles.container}>
+        <StatusBar animated={true} translucent={true} backgroundColor="#000" />
+        <ImageBackground
+          source={require('../../assets/bg4.jpg')}
+          style={styles.imageBackground}>
+          <View style={ styles.bottomView}>
+            <BlurView
+              blurType="dark"
+              blurAmount={10}
+              style={styles.blurContainer}>
+                <Text></Text>
+              <Text
+                style={tw`text-[#fff] text-[42px] font-600 ml-3 mt-1 leading-tight self-center`}>
+                Welcome Back!
+              </Text>
+              <Text
+                style={tw`text-[#A4A4A4] text-[16px] font-600 ml-3 mt-1 leading-tight self-center`}>
+                welcome back me missed you
+              </Text>
+  
+              <Text
+                style={tw`text-[#A4A4A4] text-[16px] font-600  mt-8 leading-tight mx-10`}>
+                Username
+              </Text>
+  
+              <View style={tw`w-[80%] h-13 mt-3 mx-10  `}>
+                <LinearGradient
+                  colors={[
+                    'rgba(255, 255, 255, 0.2)',
+                    'rgba(255, 255, 255, 0.148)',
+                    'rgba(255, 255, 255, 0.118)',
+                    'rgba(255, 255, 255, 0)',
+                  ]}
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 1}}
+                  style={tw`rounded-lg flex-row px-5 border border-[#ff0000] rounded-lg border-[3px] `}>
+                  <AntDesign
+                    name={'user'}
+                    size={16}
+                    color={'#fff'}
+                    style={tw`mt-4 mr-4`}
+                  />
+                  <TextInput
+                    placeholder="Username"
+                    placeholderTextColor={'#a4a4a4'}
+                    style={{width:"100%"}}
+                  />
+                </LinearGradient>
+              </View>
+             
+  
+              <Text
+                style={tw`text-[#A4A4A4] text-[16px] font-600  mt-5 leading-tight mx-10`}>
+                Password
+              </Text>
+              <View style={tw`w-[80%] h-13 mt-3 mx-10 bg-yellow-200 `}>
+                <LinearGradient
+                  colors={[
+                    'rgba(255, 255, 255, 0.2)',
+                    'rgba(255, 255, 255, 0.148)',
+                    'rgba(255, 255, 255, 0.118)',
+                    'rgba(255, 255, 255, 0)',
+                  ]}
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 1}}
+                  style={tw`rounded-lg flex-row px-5 border border-[#bfbfbf] rounded-lg border-[0.3px] `}>
+                  <AntDesign
+                    name={'key'}
+                    size={16}
+                    color={'#fff'}
+                    style={tw`mt-4 mr-4`}
+                  />
+                  <TextInput
+                    placeholder="Password"
+                    placeholderTextColor={'#a4a4a4'}
+                  />
+                </LinearGradient>
+              </View>
+            </BlurView>
+          </View>
+        </ImageBackground>
+      </View>
+    );
+  };
+  
+  export default Login;
+  
+  const styles = StyleSheet.create({
+    container:{
+      flex:0
+    },
+    imageBackground: {
+      justifyContent: 'flex-end', // Ensure children are positioned at the bottom
+      width: '100%',
+      height: '100%',
+    },
+    bottomView: {
+  
+      width: '100%',
+      height: '65%',
+      borderTopRightRadius: 30,
+      borderTopLeftRadius: 30,
+      overflow: 'hidden',
+  
+    },
+    blurContainer: {
+  
+    flex:1
+    },
+  });
+  
